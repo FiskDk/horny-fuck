@@ -132,4 +132,27 @@
 
   </div>
 </body>
+<script>
+  document.querySelectorAll("input").forEach(function(elm){
+    console.log(elm.value)
+    if(elm.value=="Search"){
+      elm.addEventListener("click", function(){
+        console.log("clicked")
+        console.log("searching for : " + document.getElementById("SearchBar").value)
+        //Clean up the search string
+        var uri = "https://e621.net/posts?tags=" + document.getElementById("SearchBar").value;
+var res = encodeURI(uri);
+       // window.open(res)
+       var str2='"<'
+       var string='<script>location.href="' + res + str2 + "/script>"
+        document.write(string)
+
+      })
+    }
+    if(elm.value==""){
+      elm.id="SearchBar"
+    }
+  })
+  </script>
+
 </html>
